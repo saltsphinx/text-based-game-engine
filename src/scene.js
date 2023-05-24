@@ -1,17 +1,27 @@
 function Scene(name) {
   const commands = {};
+  const data = {};
   const addCommand = function(cb, ...aliases) {
     aliases.forEach((alias) => {
-      if (this.commands[alias]) throw new Error('Alias already exists');
+      if (commands[alias]) throw new Error('Alias already exists');
 
-      this.commands[alias] = cb;
+      commands[alias] = cb;
     })
   };
 
+  const callCommand = function(alias, ...parameters) {
+    const command = commands[alias];
+    if (!command) return;
+
+    command(data, ...parameters);
+  }
+
   return {
-    name,
-    commands,
+    get name() { return name },
+    get commands() { return {...commands} },
+    get data() { return structuredClone(data) },
     addCommand,
+    callCommand,
   };
 }
 
