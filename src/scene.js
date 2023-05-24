@@ -10,7 +10,7 @@ function Scene(name) {
 
   return {
     name,
-    commands: {},
+    commands,
     addCommand,
   };
 }
