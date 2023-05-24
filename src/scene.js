@@ -1,6 +1,5 @@
-function Scene(name) {
+function Scene(data, name) {
   const commands = {};
-  const data = {};
   const addCommand = function(cb, ...aliases) {
     aliases.forEach((alias) => {
       if (commands[alias]) throw new Error('Alias already exists');
@@ -19,7 +18,6 @@ function Scene(name) {
   return {
     get name() { return name },
     get commands() { return {...commands} },
-    get data() { return structuredClone(data) },
     addCommand,
     callCommand,
   };
