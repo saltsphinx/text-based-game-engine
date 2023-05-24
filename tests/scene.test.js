@@ -1,8 +1,10 @@
 const Scene = require('../src/scene');
 let testScene;
+let data;
 
 beforeEach(() => {
-  testScene = Scene('test');
+  data = {};
+  testScene = Scene(data, 'test');
 });
 
 it('adds a command with a single alias', () => {
@@ -13,8 +15,8 @@ it('adds a command with a single alias', () => {
 });
 
 it('adds a command with multiple aliases', () => {
-  const commands = testScene.commands;
   testScene.addCommand(() => {}, 'testing', 't', 'check');
+  const commands = testScene.commands;
 
   expect(commands['testing'] && commands['t'] && commands['check']).toBeTruthy();
 });
@@ -24,5 +26,5 @@ it('calls a command with given parameters', () => {
   testScene.addCommand(cb, 'testing');
   testScene.callCommand('testing', 'saved');
 
-  expect(testScene.data).toHaveProperty('save', 'saved');
+  expect(data).toHaveProperty('save', 'saved');
 });
