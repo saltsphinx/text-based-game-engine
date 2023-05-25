@@ -1,4 +1,4 @@
-function Scene(data, name) {
+function Scene(data) {
   const commands = {};
   const addCommand = function(cb, ...aliases) {
     aliases.forEach((alias) => {
@@ -16,8 +16,7 @@ function Scene(data, name) {
   }
 
   return {
-    get name() { return name },
-    get commands() { return {...commands} },
+    get commands() { return { ...commands } },
     addCommand,
     callCommand,
   };
