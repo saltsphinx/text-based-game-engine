@@ -8,17 +8,9 @@ function Scene(data) {
     })
   };
 
-  const callCommand = function(alias, ...parameters) {
-    const command = commands[alias];
-    if (!command) return;
-
-    command(data, ...parameters);
-  }
-
   return {
     get commands() { return { ...commands } },
     addCommand,
-    callCommand,
   };
 }
 
