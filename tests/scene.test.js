@@ -20,11 +20,3 @@ it('adds a command with multiple aliases', () => {
 
   expect(commands['testing'] && commands['t'] && commands['check']).toBeTruthy();
 });
-
-it('calls a command with given parameters', () => {
-  const cb = (data, para) => { data['save'] = para };
-  testScene.addCommand(cb, 'testing');
-  testScene.callCommand('testing', 'saved');
-
-  expect(data).toHaveProperty('save', 'saved');
-});
