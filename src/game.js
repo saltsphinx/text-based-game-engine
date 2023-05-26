@@ -1,11 +1,4 @@
-// const callCommand = function(alias, ...parameters) {
-//   const command = commands[alias];
-//   if (!command) return;
-
-//   command(data, ...parameters);
-// }
-
-function Game() {
+function Game() {testValue
   const data = {};
   const scenes = {};
   let commands = {};
