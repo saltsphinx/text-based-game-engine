@@ -22,6 +22,14 @@ it('dumps previous scenes commands', () => {
   expect(game.commands).toHaveProperty('testProperty1');
 });
 
+it ('adds default commands even after dumping', () => {
+  game.defaultCommands.testDefault = 'testValue';
+  game.scenes.testScene = { commands: { testProperty: 'testValue'} };
+  game.initializeScene('testScene');
+
+  expect(game.commands).toHaveProperty('testDefault', 'testValue');
+});
+
 it('calls a command with given parameters', () => {
   const cb = (data, para) => { data['testProperty'] = para };
   game.commands.testMethod = cb;

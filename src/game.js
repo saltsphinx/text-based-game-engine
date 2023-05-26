@@ -1,6 +1,7 @@
 function Game() {
   const data = {};
   const scenes = {};
+  const defaultCommands = {};
   let commands = {};
   
   const callCommand = (alias, ...parameters) => {
@@ -15,12 +16,13 @@ function Game() {
     if (!scene) return;
 
     removeProps(commands);
-    Object.assign(commands, scene.commands);
+    Object.assign(commands, scene.commands, defaultCommands);
   };
 
   return {
     data,
     scenes,
+    defaultCommands,
     commands,
     callCommand,
     initializeScene,
