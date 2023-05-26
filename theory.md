@@ -5,9 +5,10 @@ i plan on having parts of the game seperated from each other, so like a scene/st
 
 ~~the issue however is that the scenes are self contained, and its sometimes required that one scene triggers another. rather than allowing scenes to know about one another, it may be a better idea for scenes to either be within scope or be passed a method that allows scene jumping.~~
 
-better answer: remove the callCommand method from scenes and place in game module. its one less method being replicated everytime a scene is made, and the plan now is to have the game module have its own commands object. we deconstruct the current scenes commands into the object, then add any additional commands that presist across all scenes if any exist. when a new scene is loaded, dump the current contents and repeat with the new scene's commands.
-to answer the above issue, there will be either a scene managing method or module that scenes can interact with. scenes commands and the manager will be within the same closure, so they can access it simpily.
+05 24 23: better answer: remove the callCommand method from scenes and place in game module. its one less method being replicated everytime a scene is made, and the plan now is to have the game module have its own commands object. we deconstruct the current scenes commands into the object, then add any additional commands that persist across all scenes if any exist. when a new scene is loaded, dump the current contents and repeat with the new scene's commands.
+to answer the above issue, there will be either a scene managing method or module that scenes can interact with. ~~scenes commands and the manager will be within the same closure, so they can access it simpily.~~ didnt realize how wrong I was until i got to implementing it. a property of one object cant access the property of another unless directly passed to it. they arent within the same closure.
 
+05 25 23 i was thinking to add to the scene system things like ***room description*** or ***room history***, but that shouldnt be the job of the core game engine. I can extend the functionality of these modules when Im actually creating the game. I can even extend it so those things are a gaming kit of their own, like a rpg extension of the 'engine' im calling this. either way, this package should be kept fairly simple. command calling, scene swapping and dumping, serialization and tests.
 
 steps
 1. create the scene factory
