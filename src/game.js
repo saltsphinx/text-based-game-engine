@@ -1,4 +1,4 @@
-function Game() {testValue
+function Game() {
   const data = {};
   const scenes = {};
   let commands = {};
