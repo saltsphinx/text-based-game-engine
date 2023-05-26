@@ -1,10 +1,8 @@
 const Scene = require('../src/scene');
 let testScene;
-let data;
 
 beforeEach(() => {
-  data = {};
-  testScene = Scene(data, 'test');
+  testScene = Scene();
 });
 
 it('adds a command with a single alias', () => {
