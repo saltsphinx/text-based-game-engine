@@ -1,0 +1,9 @@
+html {
+  background: #FFFEE0;
+}
+
+a:visited,
+a {
+  color: brown;
+  text-decoration: none;
+}
