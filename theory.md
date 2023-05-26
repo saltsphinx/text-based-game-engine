@@ -22,3 +22,10 @@ steps
 3. create the main game module
   - this will contain all character data, manage swapping and containing of scenes
 4. create the command calling system. this is seperate from the UI
+
+05 25 23
+im going to keep it simple and just use localStorage since I havent before and might add other options in the future. the game module has a data object that will store all game data. hopefully itll be as simple as turning said object into JSON, storing it in localStorage then parsing it on game/save load. whats being saved, such as room info, inventory, game config isnt the concern of this package. nodejs' global object doesnt have localStorage or Storage, so for testing Ill either have to make a mock or find one online.
+
+serialization steps
+1. saving function that takes an object and string, stringifies it and saves it to localStorage in an object with that string as a key.
+2. loading function that takes a string and checks localStorage for data, returns it parsed if found
