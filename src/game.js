@@ -6,9 +6,17 @@
 // }
 
 function Game() {
+  const data = {};
   const scenes = {};
   let commands = {};
   
+  const callCommand = (alias, ...parameters) => {
+    const command = commands[alias];
+    if (!command) return;
+
+    command(data, ...parameters);
+  };
+
   const initializeScene = (sceneName) => {
     const scene = scenes[sceneName];
     if (!scene) return;
@@ -18,8 +26,10 @@ function Game() {
   };
 
   return {
-    commands,
+    data,
     scenes,
+    commands,
+    callCommand,
     initializeScene,
   };
 }
