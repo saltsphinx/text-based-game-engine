@@ -2,6 +2,7 @@
 this is a fairly simple package that should be easily extendable. it includes a command/scene system that allows for command aliases and easy calling of them. a central game module manages said scenes and has a commands property which is an object. when a scene is initialized, all commands in the game's command property are dumped, and the scenes commands are added along with any default commands you have setup. The game module also has a data object that must be passed as a first argument to every command. There is also a simple save/load system that uses localStorage and JSON to save whatever data you'd like to persist. These systems are not linked to one another, so it'd be up to you to do so in whichever way you'd like.
 
 This package is vanila JS and uses ES6 modules.
+I'm fairly new to programming and super open to learning, so if you have any advice, please message me!
 
 # API
 ## Game
