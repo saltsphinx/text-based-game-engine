@@ -1,4 +1,4 @@
-function Scene(data) {
+function Scene() {
   const commands = {};
   const addCommand = function(cb, ...aliases) {
     aliases.forEach((alias) => {
