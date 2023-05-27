@@ -9,6 +9,7 @@ function Scene() {
 
   return {
     commands: {},
+    data: {},
     addCommand,
   };
 }

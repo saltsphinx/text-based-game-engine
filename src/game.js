@@ -11,6 +11,15 @@ function Game() {
     if (!scene) return;
 
     this.commands = {...scene.commands, ...this.defaultCommands};
+    
+    for (let propName in scene.data) {
+      if (this.data[propName]) {
+        console.log(`${propName} already exists!`);
+        continue;
+      }
+
+      this.data[propName] = scene[propName];
+    }
   };
 
   return {
