@@ -48,6 +48,14 @@ loadData(key)
 - similiar to saveData, it won't do anything is localStorage isnt avaliable or if the quota is reached.
 - will terminate the program if the data found is invalid JSON. Beware of what you're saving.
 
+## parser
+parser(input)
+- a method that takes a string and returns an object with it's contents parsed
+- object properties: { command, words }
+- takes first word of string, assigns to command and other words to words array
+- returns an empty string and words array if string is empty or whitespace
+- throws an error if anything other than a string is passed
+
 ## Some warnings
 - the scenes module is missing a way of initializing any necesarry data on being loaded. This is basically a must and will be included soon.
 - any game created with the system can benefit greatly from a pub/sub(event) system. not sure if it's a necessity for the core though.
