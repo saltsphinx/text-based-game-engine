@@ -1,8 +1,7 @@
-const gameModule = require('../src/game');
 let game;
 
 beforeEach(() => {
-  game = gameModule();
+  game = require('../src/game');
 });
 
 it('adds scene commands to own commands', () => {

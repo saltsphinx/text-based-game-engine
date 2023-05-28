@@ -1,35 +1,31 @@
-function Game() {
-  const callCommand = function(alias, ...parameters) {
-    const command = this.commands[alias];
-    if (!command) return;
+const callCommand = function(alias, ...parameters) {
+  const command = this.commands[alias];
+  if (!command) return;
 
-    command(this.data, ...parameters);
-  };
+  command(this.data, ...parameters);
+};
 
-  const initializeScene = function(sceneName) {
-    const scene = this.scenes[sceneName];
-    if (!scene) return;
+const initializeScene = function(sceneName) {
+  const scene = this.scenes[sceneName];
+  if (!scene) return;
 
-    this.commands = {...scene.commands, ...this.defaultCommands};
-    
-    for (let propName in scene.data) {
-      if (this.data[propName]) {
-        console.log(`${propName} already exists!`);
-        continue;
-      }
-
-      this.data[propName] = scene[propName];
+  this.commands = {...scene.commands, ...this.defaultCommands};
+  
+  for (let propName in scene.data) {
+    if (this.data[propName]) {
+      console.log(`${propName} already exists!`);
+      continue;
     }
-  };
 
-  return {
-    data: {},
-    scenes: {},
-    defaultCommands: {},
-    commands: {},
-    callCommand,
-    initializeScene,
-  };
-}
+    this.data[propName] = scene[propName];
+  }
+};
 
-module.exports = Game;
+module.exports = {
+  data: {},
+  scenes: {},
+  defaultCommands: {},
+  commands: {},
+  callCommand,
+  initializeScene,
+};
